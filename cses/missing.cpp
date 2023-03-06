@@ -29,16 +29,8 @@ Print the missing number.*/
         cin >> numbers[i];
     }
 
-    // Sort the numbers
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            if (numbers[i] > numbers[j]) {
-                int temp = numbers[i];
-                numbers[i] = numbers[j];
-                numbers[j] = temp;
-            }
-        }
-    }
+    // Sort the numbers using c++ library sort
+    sort(numbers, numbers + n - 1);
 
     // Find the missing number
     for (int i = 0; i < n - 1; i++) {
