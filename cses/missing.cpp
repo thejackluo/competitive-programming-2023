@@ -1,43 +1,42 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	/* You are given all numbers between 1,2,…,n
- except one. Your task is to find the missing number.
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-Input
-
-The first input line contains an integer n
-.
-
-The second line contains n−1
- numbers. Each number is distinct and between 1
- and n
- (inclusive).
-
-Output
-
-Print the missing number.*/
-
-    int n;    
+    // Define data types
+    int n, t;
     cin >> n;
 
-    int numbers[n];
+    bool middle = false;
 
-    // Read in the numbers
+    int numbers[n - 1];
     for (int i = 0; i < n - 1; i++) {
         cin >> numbers[i];
     }
 
-    // Sort the numbers using c++ library sort
+    // Test input
+    cerr << n;
+    for (int i = 0; i < n - 1; i++) {
+        cerr << numbers[i];
+    }
+
+    // Sort the numbers
     sort(numbers, numbers + n - 1);
 
     // Find the missing number
     for (int i = 0; i < n - 1; i++) {
         if (numbers[i] != i + 1) {
             cout << i + 1;
+            middle = true;
             break;
         }
+    }
+
+    // edge case
+    if (!middle) {
+        cout << n;
     }
 
     return 0;
