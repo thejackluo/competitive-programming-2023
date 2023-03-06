@@ -7,7 +7,7 @@ int main() {
     cin.tie(nullptr);
 
     // input
-    int n
+    int n;
     cin >> n;
 
 
