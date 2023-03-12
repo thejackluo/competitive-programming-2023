@@ -19,6 +19,9 @@ public:
         string doubleDigit2[10] = {"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
         // define all triple digit words in an array
         string tripleDigit[10] = {"Hundred", "Thousand", "Million", "Billion"};
+
+        // find the length of the number
+        int length = to_string(num).length();
         
         // define a switch case for each category of numbers
         switch (num) {
