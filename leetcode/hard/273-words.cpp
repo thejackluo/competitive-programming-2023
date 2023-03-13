@@ -22,6 +22,9 @@ public:
 
         // find the length of the number
         int length = to_string(num).length();
+
+        // find the number of digits in the number
+        int digits = 0;
         
         // define a switch case for each category of numbers
         switch (num) {
