@@ -18,15 +18,69 @@ using namespace std;
 
 int main() {
     // files
-    freopen("casino.in", "r", stdin);
-    freopen("casino.out", "w", stdout);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // freopen("casino.in", "r", stdin);
+    // freopen("casino.out", "w", stdout);
 
     // input
-    int n;
-    cin >> n;
+    int t;
+    cin >> t;
     
-    for (int i = 0; i < n; i++) {
-        cerr << "i: " << i << endl;
+    for (int i = 0; i < t; i++) {
+        int n, m;
+        cin >> n >> m;
+
+        // create a 2d array for cards with n rows and m columns
+        int cards[n][m];
+
+        // input the cards
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < m; k++) {
+                cin >> cards[j][k];
+            }
+        }
+
+        // create a transposed array for cards with m rows and n columns
+        int transposed_cards[m][n];
+
+        // transpose the cards
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < m; k++) {
+                transposed_cards[k][j] = cards[j][k];
+            }
+        }
+
+        // create a sum variable
+        int sum = 0;
+
+        // sort the cards for each row
+        for (int j = 0; j < m; j++) {
+            sort(transposed_cards[j], transposed_cards[j] + n);
+        }
+  
+        // // print the transposed cards out
+        // for (int j = 0; j < m; j++) {
+        //     for (int k = 0; k < n; k++) {
+        //         cerr << transposed_cards[j][k] << " ";
+        //     }
+        //     cerr << endl;
+        // }
+
+        // calculate the sum (since we are starting with the smallest number, it will be negative n-1 times and positive 0 times, we will increment positive and decrement negative as we iterate through the loop and repeat for each row)
+        for (int j = 0; j < m; j++) {
+            int negative = n - 1;
+            int positive = 0;
+
+            for (int k = 0; k < n; k++) {
+                sum += (transposed_cards[j][k] * (positive - negative));
+                negative--;
+                positive++;
+            }
+        }
+
+        // output
+        cout << sum << endl;
     }
 
 }
