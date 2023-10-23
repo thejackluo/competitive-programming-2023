@@ -1,2 +1,4 @@
 # competitive-programming-2023
- A way to track my competitive programming and data structures journey
+In March, I took a challenge to improve my competitive programming skills and record a part of it online. Here is the progress as recorded on github. 
+
+Update 06/23: Finished advanced data structures and understood most major concepts!
